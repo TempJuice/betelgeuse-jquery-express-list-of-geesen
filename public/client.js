@@ -18,8 +18,15 @@ $(document).ready(function () {
 
         console.log('newGoose:', newGoose);
 
-        // Adding new goose to goose array
-        geese.push(newGoose);
+        $.ajax({
+            method: 'POST',
+            url: '/geese',
+            data: newGoose,
+            success: function(response) {
+                console.log(response);
+                getGeesen();
+            }
+        })
 
         // redrawing the table with the new goose
         drawGeeseTable();
