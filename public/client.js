@@ -23,10 +23,17 @@ $(document).ready(function () {
             url: '/geese',
             data: newGoose,
             success: function(response) {
-                console.log(response);
+                console.log( 'in success:', response);
                 getGeesen();
-            }
-        })
+                $('#newGooseName').val('');
+                $('#newGooseAge').val('');
+                $('#newGooseType').val('');
+            }, // end success
+            error: function( response ){
+                console.log( 'in error:', response);
+                alert( 'SMH...' );
+            } // end error
+        }); // end ajax
 
         // redrawing the table with the new goose
         drawGeeseTable();
@@ -61,4 +68,3 @@ function drawGeeseTable() {
         );
     }
 }
-
