@@ -41,7 +41,7 @@ app.post('/geese', function(req, res) {
           res.sendStatus( 400 );
         }
       }
-      // else
+      // continue if no match found
       geeseArray.push( req.body );
       res.sendStatus( 201 );
     } // end no blank name
